@@ -1,0 +1,13 @@
+.card-container {
+  max-width: 600px;
+  margin-bottom: 1.5rem;
+
+  .card-image {
+    background-image: url("https://material.angular.io/assets/img/examples/shiba1.jpg");
+    background-size: cover;
+  }
+  .card-comentarios{
+    align-self: center;
+    width: 95%;
+  }
+}
