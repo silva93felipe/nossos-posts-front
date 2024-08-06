@@ -13,13 +13,20 @@ import { HeaderComponent } from './components/header/header.component';
 import { CardComponent } from './components/card/card.component';
 import {MatBadgeModule} from '@angular/material/badge';
 import { LoginComponent } from './pages/login/login.component';
+import { PostsComponent } from './pages/posts/posts.component';
+import { provideRouter, RouterModule } from '@angular/router';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatListModule} from '@angular/material/list';
+import { routes } from './app.routes';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     CardComponent,
-    LoginComponent
+    LoginComponent,
+    PostsComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,9 +37,13 @@ import { LoginComponent } from './pages/login/login.component';
     MatIconModule,
     MatFormFieldModule,
     MatInputModule,
-    MatBadgeModule
+    MatBadgeModule,
+    RouterModule,
+    MatDividerModule,
+    MatListModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [ provideRouter(routes)],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

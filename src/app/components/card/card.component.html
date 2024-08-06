@@ -11,14 +11,12 @@
   />
   <mat-card-content>
     <p>
-      The Shiba Inu is the smallest of the six original and distinct spitz
-      breeds of dog from Japan. A small, agile dog that copes very well with
-      mountainous terrain, the Shiba Inu was originally bred for hunting.
+      The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan. A small, agile dog that copes very well with  mountainous terrain, the Shiba Inu was originally bred for hunting.
     </p>
   </mat-card-content>
   <mat-card-actions>
     <button mat-button (click)="curtir()">
-      <mat-icon [matBadge]="quantidadesCurtidas" matBadgeOverlap="false" [color]="isCurtido ? 'primary' : ''">thumb_up</mat-icon>
+      <mat-icon [matBadge]="quantidadesCurtidas > 0 ? quantidadesCurtidas : ''" matBadgeOverlap="false" [color]="isCurtido ? 'primary' : ''">thumb_up</mat-icon>
     </button>
     <button mat-button (click)="favoritar()">
       <mat-icon [color]="isFavorito ? 'primary' : ''">favorite</mat-icon>
@@ -28,8 +26,18 @@
   <ng-template [ngIf]="isComentar">
       <mat-form-field class="card-comentarios" >
         <mat-label>Comentários</mat-label>
-        <textarea matInput></textarea>
+        <textarea matInput value=""></textarea>
       </mat-form-field>
-      <button class="btn-comentar" color="primary" mat-flat-button>Salvar</button>
+      <button class="btn-comentar" color="primary" (click)="adicionarComentario()" mat-flat-button>Salvar</button>
+  </ng-template>
+  <ng-template [ngIf]="comentarios.length > 0">
+    <ng-container *ngFor="let comentario of comentarios">
+      <mat-list>
+        <mat-list-item>
+          <mat-icon matListItemIcon>account_circle</mat-icon>
+          <p class="comentario">{{ comentario }}</p>
+        </mat-list-item>
+      </mat-list>
+    </ng-container>
   </ng-template>
 </mat-card>

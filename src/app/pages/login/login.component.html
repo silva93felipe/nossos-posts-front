@@ -1,13 +1,11 @@
-<mat-card  appearance="outlined">
-  <mat-card-content>
-    <mat-form-field>
-      <mat-label>Email</mat-label>
-      <input matInput />
-    </mat-form-field>
-    <mat-form-field>
-      <mat-label>Senha</mat-label>
-      <input matInput />
-    </mat-form-field>
-    <button mat-flat-button>Basic</button>
-  </mat-card-content>
-</mat-card>
+<form class="form-login" (submit)="login()">
+  <mat-form-field class="full-width">
+    <mat-label>Email</mat-label>
+    <input matInput placeholder="Email" [value]="loginModel.email" >
+  </mat-form-field>
+  <mat-form-field class="full-width">
+    <mat-label>Senha</mat-label>
+    <input type="password" matInput placeholder="Senha"  [value]="loginModel.senha">
+  </mat-form-field>
+  <button class="full-width" color="primary" type="submit" mat-flat-button>Acessar</button>
+</form>
